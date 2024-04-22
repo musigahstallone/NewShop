@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NewCatalog.Controllers;
-using NewCatalog.Data;
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CatalogContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("CatalogContext")
     ?? throw new InvalidOperationException("Connection string 'CatalogContext' not found.")));
