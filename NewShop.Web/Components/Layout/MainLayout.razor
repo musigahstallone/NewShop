@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+
+<header class="d-flex align-items-center justify-content-center">
+    <h1 class="app-name pa-4">&lt;AspireShop /&gt;</h1>
+    <div class="flex-spacer"></div>
+    <h2 class="text-align-center">Product Catalog</h2>
+    <div class="flex-spacer"></div>
+    <Cart BasketAvailabilityChanged="HandleBasketAvailabilityChanged" />
+</header>
+
+@Body
+
+
+<AppFooter />
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+
+@code{
+
+    bool basketIsAvailable;
+    CatalogItemsPage? catalog;
+
+    private void HandleBasketAvailabilityChanged(bool isAvailable)
+    {
+        basketIsAvailable = isAvailable;
+    }
+}
