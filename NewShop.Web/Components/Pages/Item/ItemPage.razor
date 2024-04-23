@@ -1,4 +1,4 @@
-﻿@page "/item/{itemId:int}"
+﻿@*page "/item/{itemId:int}"
 @using System.Net
 @inject CatalogService CatalogService
 @inject BasketState BasketState
@@ -108,3 +108,4 @@ else if (notFound)
         numInCart = items.FirstOrDefault(row => row.ProductId == ItemId)?.Quantity ?? 0;
     }
 }
+*@

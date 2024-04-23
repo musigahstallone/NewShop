@@ -12,6 +12,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\NewBasket\NewBasket.csproj" />
 		<ProjectReference Include="..\NewCatalog\NewCatalog.csproj" />
+		<ProjectReference Include="..\NewOrdering\NewOrdering.csproj" />
+		<ProjectReference Include="..\NewPayment\NewPayment.csproj" />
 		<ProjectReference Include="..\NewShop.Web\NewShop.Web.csproj" />
 	</ItemGroup>
 

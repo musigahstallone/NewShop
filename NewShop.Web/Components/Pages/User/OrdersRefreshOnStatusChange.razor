@@ -1,4 +1,4 @@
-﻿@rendermode InteractiveServer
+﻿@* @rendermode InteractiveServer
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject OrderStatusNotificationService OrderStatusNotificationService
 @inject NavigationManager Nav
@@ -10,7 +10,8 @@
     {
         if (firstRender)
         {
-            var buyerId = await AuthenticationStateProvider.GetBuyerIdAsync();
+            var buyerd = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var buyerId = buyerd.User.GetUserId();
             if (!string.IsNullOrEmpty(buyerId))
             {
                 orderStatusChangedSubscription = OrderStatusNotificationService.SubscribeToOrderStatusNotifications(
@@ -37,4 +38,4 @@
     {
         orderStatusChangedSubscription?.Dispose();
     }
-}
+} *@

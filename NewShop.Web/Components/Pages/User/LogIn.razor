@@ -1,4 +1,4 @@
-﻿@page "/user/login"
+﻿@* @page "/user/login"
 @inject NavigationManager Nav
 @attribute [Authorize]
 @code {
@@ -17,4 +17,4 @@
 
     public static string Url(NavigationManager nav)
         => $"user/login?returnUrl={Uri.EscapeDataString(nav.ToBaseRelativePath(nav.Uri))}";
-}
+} *@

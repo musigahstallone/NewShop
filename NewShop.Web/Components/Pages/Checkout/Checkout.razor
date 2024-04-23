@@ -1,4 +1,4 @@
-﻿@page "/checkout"
+﻿@*page "/checkout"
 @using System.Globalization
 @using System.ComponentModel.DataAnnotations
 @inject BasketState Basket
@@ -179,3 +179,4 @@
     private static DateTime? ParseExpiryDate(string? mmyy)
         => DateTime.TryParseExact($"01/{mmyy}", "dd/MM/yy", null, DateTimeStyles.None, out var result) ? result.ToUniversalTime() : null;
 }
+*@

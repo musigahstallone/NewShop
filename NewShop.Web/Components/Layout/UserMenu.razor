@@ -1,4 +1,4 @@
-﻿@inject LogOutService LogOutService
+﻿@* @inject LogOutService LogOutService
 @inject NavigationManager Nav
 
 <AuthorizeView>
@@ -26,4 +26,4 @@
 
     private Task LogOutAsync()
         => LogOutService.LogOutAsync(HttpContext!);
-}
+} *@

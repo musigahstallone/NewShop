@@ -1,4 +1,6 @@
-﻿@attribute [StreamRendering]
+﻿@* 
+
+@attribute [StreamRendering]
 @inject BasketState Basket
 @inject LogOutService LogOutService
 @inject NavigationManager NavigationManager
@@ -49,3 +51,4 @@
         basketItems = await Basket.GetBasketItemsAsync();
     }
 }
+*@

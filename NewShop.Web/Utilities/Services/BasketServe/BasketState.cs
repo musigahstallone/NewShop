@@ -1,4 +1,4 @@
-﻿namespace NewShop.Web.Utilities.Services.BasketServe;
+﻿/*namespace NewShop.Web.Utilities.Services.BasketServe;
 
 public class BasketState(
     BasketService basketService,
@@ -7,7 +7,7 @@ public class BasketState(
     AuthenticationStateProvider authenticationStateProvider)
 {
     private Task<IReadOnlyCollection<BasketItem>>? _cachedBasket;
-    private HashSet<BasketStateChangedSubscription> _changeSubscriptions = new();
+    private HashSet<BasketStateChangedSubscription> _changeSubscriptions = [];
 
     public Task DeleteBasketAsync()
         => basketService.DeleteBasketAsync();
@@ -69,7 +69,7 @@ public class BasketState(
         }
     }
 
-    /*
+
     public async Task CheckoutAsync(BasketCheckoutInfo checkoutInfo)
     {
         if (checkoutInfo.RequestId == default)
@@ -77,8 +77,13 @@ public class BasketState(
             checkoutInfo.RequestId = Guid.NewGuid();
         }
 
-        var buyerId = await authenticationStateProvider.GetBuyerIdAsync() ?? throw new InvalidOperationException("User does not have a buyer ID");
-        var userName = await authenticationStateProvider.GetUserNameAsync() ?? throw new InvalidOperationException("User does not have a user name");
+        // var by = await authenticationStateProvider.GetAuthenticationStateAsync()
+        // var buyer =
+        var buyerd = await authenticationStateProvider.GetAuthenticationStateAsync() ?? throw new InvalidOperationException("User does not have a buyer ID"); ;
+        var buyerId = buyerd.User.GetUserId();
+
+        var userNam = await authenticationStateProvider.GetAuthenticationStateAsync() ?? throw new InvalidOperationException("User does not have a user name");
+        var userName = userNam.User.GetUserName();
 
         // Get details for the items in the basket
         var orderItems = await FetchBasketItemsAsync();
@@ -102,7 +107,7 @@ public class BasketState(
         await orderingService.CreateOrder(request, checkoutInfo.RequestId);
         await DeleteBasketAsync();
     }
-    */
+
     private Task NotifyChangeSubscribersAsync()
         => Task.WhenAll(_changeSubscriptions.Select(s => s.NotifyAsync()));
 
@@ -164,4 +169,4 @@ public record CreateOrderRequest(
     string CardSecurityNumber,
     int CardTypeId,
     string Buyer,
-    List<BasketItem> Items);
+    List<BasketItem> Items);*/

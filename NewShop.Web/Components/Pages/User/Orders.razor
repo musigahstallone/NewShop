@@ -1,4 +1,4 @@
-﻿@page "/user/orders"
+﻿@* @page "/user/orders"
 @attribute [Authorize]
 @attribute [StreamRendering]
 @inject OrderingService OrderingService
@@ -55,4 +55,4 @@ else
     {
         orders = await OrderingService.GetOrders();
     }
-}
+} *@

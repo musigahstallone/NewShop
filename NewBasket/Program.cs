@@ -10,7 +10,7 @@ builder.Services.AddGrpc();
 
 var app = builder.Build();
 app.MapDefaultEndpoints();
-app.UseAuthorization();
+// app.UseAuthorization();
 
 app.MapGrpcService<BasketService>();
 app.Run();

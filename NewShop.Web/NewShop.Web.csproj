@@ -11,8 +11,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+		<PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.16" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.4" />
 		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.0-preview.5.24201.12" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.8.0" />
 		<PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
 		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.62.0" />
 		<PackageReference Include="Grpc.Tools" Version="2.62.0">
@@ -22,13 +25,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Components\Pages\Cart\" />
+		<Folder Include="Components\Pages\Cart\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Protobuf Include="..\NewBasket\Protos\basket.proto" GrpcServices="Client">
-	    <Link>Protos\basket.proto</Link>
-	  </Protobuf>
+		<Protobuf Include="..\NewBasket\Protos\basket.proto" GrpcServices="Client">
+			<Link>Protos\basket.proto</Link>
+		</Protobuf>
 	</ItemGroup>
 
 </Project>

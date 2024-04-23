@@ -28,3 +28,20 @@ global using NewShop.Web.Utilities.SmallUnits;
 global using NewBasket.Grpc;
 global using GrpcBasketItem = NewBasket.Grpc.BasketItem;
 global using GrpcBasketClient = NewBasket.Grpc.Basket.BasketClient;
+
+
+// service extension
+
+global using Microsoft.AspNetCore.Components.Server;
+global using System;
+global using Azure.AI.OpenAI;
+global using Microsoft.AspNetCore.Authentication.Cookies;
+global using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+//global using Microsoft.AspNetCore.Components.Authorization;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.IdentityModel.JsonWebTokens;
+global using Microsoft.SemanticKernel;
+global using Microsoft.SemanticKernel.ChatCompletion;
+global using Microsoft.SemanticKernel.Connectors.OpenAI;
+global using Microsoft.SemanticKernel.TextGeneration;
+global using NewShop.ServiceDefaults;
