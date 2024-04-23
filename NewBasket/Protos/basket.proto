@@ -1,60 +1,33 @@
 syntax = "proto3";
 
-option csharp_namespace = "NewBasket.GrpcBasket";
+option csharp_namespace = "NewBasket.Grpc";
 
 package BasketApi;
 
 service Basket {
-	rpc GetBasketById(BasketRequest) returns (CustomerBasketResponse) {}
-	rpc UpdateBasket(CustomerBasketRequest) returns (CustomerBasketResponse) {}
-	rpc CheckoutBasket(CheckoutCustomerBasketRequest) returns (CheckoutCustomerBasketResponse) {}
-	rpc DeleteBasket(DeleteCustomerBasketRequest) returns (DeleteCustomerBasketResponse) {}
+    rpc GetBasket(GetBasketRequest) returns (CustomerBasketResponse) {}
+    rpc UpdateBasket(UpdateBasketRequest) returns (CustomerBasketResponse) {}
+    rpc DeleteBasket(DeleteBasketRequest) returns (DeleteBasketResponse) {}
 }
 
-message BasketRequest {
-	string id = 1;
-}
-
-message CustomerBasketRequest {
-	string buyerId = 1;
-	repeated BasketItemResponse items = 2;
+message GetBasketRequest {
 }
 
 message CustomerBasketResponse {
-	string buyerId = 1;
-	repeated BasketItemResponse items = 2;
+    repeated BasketItem items = 1;
 }
 
-message BasketItemResponse {
-	string id = 1;
-	int32 productId = 2;
-	DecimalValue unitPrice = 4;
-	DecimalValue oldUnitPrice = 5;
-	int32 quantity = 6;
+message BasketItem {
+    int32 product_id = 2;
+    int32 quantity = 6;
 }
 
-message CheckoutCustomerBasketRequest {
-	string buyerId = 1;
+message UpdateBasketRequest {
+    repeated BasketItem items = 2;
 }
 
-message CheckoutCustomerBasketResponse {
+message DeleteBasketRequest {
 }
 
-message DeleteCustomerBasketRequest {
-	string buyerId = 1;
-}
-
-message DeleteCustomerBasketResponse {
-}
-
-// See: https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types#decimals
-// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
-message DecimalValue {
-
-    // Whole units part of the amount
-    int64 units = 1;
-
-    // Nano units of the amount (10^-9)
-    // Must be same sign as units
-    sfixed32 nanos = 2;
+message DeleteBasketResponse {
 }

@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
 		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.0-preview.5.24201.12" />
 		<PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
 		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.62.0" />
@@ -21,13 +22,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Protobuf Include="..\NewBasket\Protos\basket.proto" GrpcServices="Client">
-			<Link>Protos\basket.proto</Link>
-		</Protobuf>
+	  <Folder Include="Components\Pages\Cart\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Components\Pages\Cart\" />
+	  <Protobuf Include="..\NewBasket\Protos\basket.proto" GrpcServices="Client">
+	    <Link>Protos\basket.proto</Link>
+	  </Protobuf>
 	</ItemGroup>
 
 </Project>

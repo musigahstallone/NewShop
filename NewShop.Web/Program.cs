@@ -1,20 +1,14 @@
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using NewShop.Web.Components;
-using NewBasket.GrpcBasket;
-using NewShop.Web.Services.BasketServices;
-using NewShop.Web.Services.CatalogServices;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
 builder.Services.AddHttpForwarderWithServiceDiscovery();
 
-builder.Services.AddHttpServiceReference<CatalogServiceClient>("https+http://newcatalog", healthRelativePath: "health");
+builder.Services.AddHttpServiceReference<CatalogService>("https+http://newcatalog", healthRelativePath: "health");
 
 var isHttps = builder.Configuration["DOTNET_LAUNCH_PROFILE"] == "https";
 
-builder.Services.AddSingleton<BasketServiceClient>()
+builder.Services.AddSingleton<BasketService>()
     .AddGrpcServiceReference<Basket.BasketClient>($"{(isHttps ? "https" : "http")}://newbasket", failureStatus: HealthStatus.Degraded);
 
 builder.Services.AddRazorComponents();

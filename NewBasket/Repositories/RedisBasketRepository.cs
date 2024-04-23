@@ -1,9 +1,4 @@
-﻿using NewBasket.Models;
-using StackExchange.Redis;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace NewBasket.Repositories;
+﻿namespace NewBasket.Repositories;
 public class RedisBasketRepository(ILogger<RedisBasketRepository> logger, IConnectionMultiplexer redis) : IBasketRepository
 {
     private readonly IDatabase _database = redis.GetDatabase();

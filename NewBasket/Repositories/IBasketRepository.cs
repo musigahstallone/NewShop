@@ -1,6 +1,4 @@
-﻿using NewBasket.Models;
-
-namespace NewBasket.Repositories;
+﻿namespace NewBasket.Repositories;
 
 public interface IBasketRepository
 {
